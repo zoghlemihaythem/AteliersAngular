@@ -1,0 +1,26 @@
+
+<input type="text" class="form-control" placeholder="Search files..."(input)="filter($event)" >
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">titre</th>
+        <th scope="col">entreprise</th>
+        <th scope="col">etat</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of listeEmploi" >
+        <th >{{e.reference}}</th>
+        <td>{{e.titre}}</td>
+        <td>{{e.entreprise}}</td>
+        <td>{{e.etat}}</td>
+        <button [disabled]="e.etat=='false'">postuler</button>
+     
+      </tr>
+    </tbody>
+  </table>
+  
+  <button class="btn btn-primary"  type ="submit" (click)="calcul()"  >Bilan</button>
+  <h5>liste d'emploi non cloturés  :  {{somme}}</h5>
