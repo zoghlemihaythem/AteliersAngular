@@ -1,0 +1,9 @@
+<form #f="ngForm">
+    <label>name</label>
+    <input type="text">
+    <label>description</label>
+    <input type="text">
+    <label>price</label>
+    <input type="number">
+    <input type="submit" (click)="showForm(f)"  value="save">
+</form>
