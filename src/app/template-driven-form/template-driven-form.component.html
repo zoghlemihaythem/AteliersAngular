@@ -2,10 +2,53 @@
 <h5>Information generale</h5>
 <form #f="ngForm" class="form-group mb-3">
     <label class="form-label m-2">name</label>
-    <input  type="text"><br>
+    <input  type="text"name="name" ngModel required  #t="ngModel"><br>
+    <div *ngIf="t.invalid && t.touched">
+        <div *ngIf="t.errors?.['required']">
+            required
+        </div>
+    </div>    
     <label class="form-label m-2" >Email</label>
-    <input  type="text"><br>
-    <input type="submit"   value="save">
+    <input  type="text" name="Email" ngModel required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #z="ngModel"><br>
+    <div *ngIf="z.invalid && z.touched">
+        <div *ngIf="z.errors?.['required']">
+            required
+        </div>
+    </div> 
+    
+    
+    <h5>Information de payement</h5>
+    <label class="form-label m-2">type de carte</label>
+    <input  type="text" name="type de carte" ngModel required  #a="ngModel"><br>
+    <div *ngIf="a.invalid && a.touched">
+        <div *ngIf="a.errors?.['required']">
+            required
+        </div>
+    </div> 
+    <label class="form-label m-2">numero carte</label>
+    <input  type="text" name="numero carte" ngModel required pattern="^[0-9]{16}$" #b="ngModel"><br>
+    <div *ngIf="b.invalid && b.touched">
+        <div *ngIf="b.errors?.['required']">
+            required
+        </div>
+        <div *ngIf="b.errors?.['pattern']">
+            compose de 16 chiffres
+        </div>
+    </div> 
+    <label class="form-label m-2">date expiration</label>
+    <input  type="text" name="date expiration" ngModel required #c="ngModel"><br>
+    <div *ngIf="c.invalid && c.touched">
+        <div *ngIf="c.errors?.['required']">
+            required
+        </div>
+    </div> 
+    <div *ngIf="b.valid && c.valid && a.valid">
+        <label class="form-label m-2"  >code</label>
+    <input  type="text" name="code"><br> 
+    </div>
+    
+    <button type="submit" [disabled]="f.invalid">ajouter</button>
+
 </form>
 
 </div>
