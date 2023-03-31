@@ -1,0 +1,32 @@
+
+<div>
+    <input type="text" [(ngModel)]="value">
+    <button class="btn btn-primary m-3"  type="submit" (click)="getNumberOf()">verifier</button>
+    {{message}}
+
+</div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">username</th>
+        <th scope="col">email</th>
+        <th scope="col">Detail</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of listUsers" >
+        <td>{{e.id}}</td>
+        <td>{{e.name}}</td>
+        <td>{{e.username}}</td>
+        <td>{{e.email}}</td>
+       <a href="https://jsonplaceholder.typicode.com/todos?userId={{e.id}}"><td> voir todo</td></a> 
+          
+     
+      </tr>
+    </tbody>
+  </table>
+ 

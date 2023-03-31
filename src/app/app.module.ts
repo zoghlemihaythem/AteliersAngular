@@ -11,6 +11,12 @@ import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddProduitComponent } from './add-produit/add-produit.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { UsersComponent } from './users/users.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 
 @NgModule({
@@ -23,12 +29,17 @@ import { TemplateDrivenFormComponent } from './template-driven-form/template-dri
     NotFoundComponent,
     AddProduitComponent,
     TemplateDrivenFormComponent,
+    TodoListComponent,
+    UsersComponent,
+    
    
   ],
   imports: [
+    
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
